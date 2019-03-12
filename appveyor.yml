@@ -7,14 +7,17 @@ environment:
     BOOST_PREFIX: C:\Libraries\boost_1_67_0
   matrix:
     - PYTHON: "C:\\Python27-x64"
+      PYTHON_VER: 2.7
       PIPINSTALLS: nose wheel mock
       MINICONDA: "C:\\Miniconda-x64"
       arch: x64
     - PYTHON: "C:\\Python36-x64"
+      PYTHON_VER: 3.6
       PIPINSTALLS: nose wheel
       MINICONDA: "C:\\Miniconda36-x64"
       arch: x64
     - PYTHON: "C:\\Python37-x64"
+      PYTHON_VER: 3.7
       PIPINSTALLS: nose wheel
       MINICONDA: "C:\\Miniconda37-x64"
       arch: x64
@@ -40,10 +43,10 @@ install:
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - cd c:\
   - conda config --set always_yes yes
-  - conda create --name pyosmium
+  - conda create --name pyosmium python=%PYTHON_VER%
   - activate pyosmium
   - conda install bzip2=%BZIP2_VER% expat=%EXPAT_VER% zlib=%ZLIB_VER% shapely=%SHAPELY_VER%
-  - conda info --envs
+  - conda info --envs -s
   - python --version
   - dir C:\Miniconda-x64\envs\pyosmium
   - cd c:\dev
