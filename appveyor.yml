@@ -3,18 +3,19 @@ environment:
     BZIP2_VER: 1.0.6
     EXPAT_VER: 2.2.5
     ZLIB_VER: 1.2.11
+    SHAPELY_VER: 1.6.4
     BOOST_PREFIX: C:\Libraries\boost_1_67_0
   matrix:
     - PYTHON: "C:\\Python27-x64"
-      PIPINSTALLS: nose wheel mock shapely
+      PIPINSTALLS: nose wheel mock
       MINICONDA: "C:\\Miniconda-x64"
       arch: x64
     - PYTHON: "C:\\Python36-x64"
-      PIPINSTALLS: nose wheel shapely
+      PIPINSTALLS: nose wheel
       MINICONDA: "C:\\Miniconda36-x64"
       arch: x64
     - PYTHON: "C:\\Python37-x64"
-      PIPINSTALLS: nose wheel shapely
+      PIPINSTALLS: nose wheel
       MINICONDA: "C:\\Miniconda37-x64"
       arch: x64
 
@@ -40,7 +41,7 @@ install:
   - conda config --set always_yes yes
   - conda create --name pyosmium
   - activate pyosmium
-  - conda install bzip2=%BZIP2_VER% expat=%EXPAT_VER% zlib=%ZLIB_VER%
+  - conda install bzip2=%BZIP2_VER% expat=%EXPAT_VER% zlib=%ZLIB_VER% shapely=%SHAPELY_VER%
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python --version
   - cd c:\dev
