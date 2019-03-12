@@ -37,18 +37,19 @@ init:
 
 install:
   - set PATH=%PATH%;%conda_path%
+  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - cd c:\
   - conda config --set always_yes yes
   - conda create --name pyosmium
   - activate pyosmium
   - conda install bzip2=%BZIP2_VER% expat=%EXPAT_VER% zlib=%ZLIB_VER% shapely=%SHAPELY_VER%
-  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - conda info --envs
   - python --version
+  - dir C:\Miniconda-x64\envs\pyosmium
   - cd c:\dev
   - git clone --depth 1 https://github.com/osmcode/libosmium.git pyosmium/contrib/libosmium
   - git clone --depth 1 https://github.com/mapbox/protozero.git pyosmium/contrib/protozero
   - git clone --depth 1 https://github.com/pybind/pybind11.git pyosmium/contrib/pybind11
-  - dir c:\dev
   - cd c:\
   - pip install %PIPINSTALLS%
 
