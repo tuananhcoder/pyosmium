@@ -63,14 +63,14 @@ build_script:
 test_script:
   - set PATH=%BOOST_PREFIX:/=\%\lib;%PATH%
   - cd test
-  - python run_tests.py -v
+  - python run_tests.py -v --nocapture
 
 after_test:
   - cd c:\dev\pyosmium
   - copy /y %conda_library_path%\bin\zlib.dll c:\dev\pyosmium\src\osmium
   - copy /y %conda_library_path%\bin\expat.dll c:\dev\pyosmium\src\osmium
   - copy /y %conda_library_path%\bin\libbz2.dll c:\dev\pyosmium\src\osmium
-  - "%PYTHON%\\python.exe setup.py bdist_wheel"
+  - python.exe setup.py bdist_wheel
 
 artifacts:
   - path: dist\*

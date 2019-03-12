@@ -63,8 +63,13 @@ public:
 
             set_common_attributes(o, builder);
 
-            if (hasattr(o, "nodes"))
+            printf("pre hasattr nodes\n");
+            if (hasattr(o, "nodes")) {
+                printf("pre set nodes\n");
                 set_nodelist(o.attr("nodes"), &builder);
+                printf("post set nodes\n");
+            }
+            printf("post hasattr nodes\n");
 
             if (hasattr(o, "tags"))
                 set_taglist(o.attr("tags"), builder);
