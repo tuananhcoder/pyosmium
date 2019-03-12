@@ -30,10 +30,14 @@ def WriteExpect(expected):
     finally:
         writer.close()
 
+    print("before reopen")
     with open(fname, 'r') as fd:
         line = fd.readline().strip()
+    print("after reopen")
     assert_equals(line, expected)
+    print("before osremove: %s" % fname)
     os.remove(fname)
+    print("ater osremove")
 
 class O(object):
     def __init__(self, **params):

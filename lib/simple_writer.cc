@@ -71,9 +71,7 @@ public:
                 set_taglist(o.attr("tags"), builder);
         }
 
-        fprintf(stderr, "pre flsuh nodes\n");
         flush_buffer();
-        fprintf(stderr, "post flush nodes\n");
     }
 
     void add_relation(py::object o)
