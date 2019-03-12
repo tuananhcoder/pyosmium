@@ -63,19 +63,17 @@ public:
 
             set_common_attributes(o, builder);
 
-            fprintf(stderr, "pre hasattr nodes\n");
             if (hasattr(o, "nodes")) {
-                fprintf(stderr, "pre set nodes\n");
                 set_nodelist(o.attr("nodes"), &builder);
-                fprintf(stderr, "post set nodes\n");
             }
-            fprintf(stderr, "post hasattr nodes\n");
 
             if (hasattr(o, "tags"))
                 set_taglist(o.attr("tags"), builder);
         }
 
+        fprintf(stderr, "pre flsuh nodes\n");
         flush_buffer();
+        fprintf(stderr, "post flush nodes\n");
     }
 
     void add_relation(py::object o)
