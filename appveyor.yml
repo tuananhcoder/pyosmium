@@ -10,14 +10,14 @@ environment:
       PIPINSTALLS: nose wheel mock
       MINICONDA: "C:\\Miniconda-x64"
       arch: x64
-    - PYTHON_VER: 3.6
-      PIPINSTALLS: nose wheel
-      MINICONDA: "C:\\Miniconda36-x64"
-      arch: x64
-    - PYTHON_VER: 3.7
-      PIPINSTALLS: nose wheel
-      MINICONDA: "C:\\Miniconda37-x64"
-      arch: x64
+#    - PYTHON_VER: 3.6
+#      PIPINSTALLS: nose wheel
+#      MINICONDA: "C:\\Miniconda36-x64"
+#      arch: x64
+#    - PYTHON_VER: 3.7
+#      PIPINSTALLS: nose wheel
+#      MINICONDA: "C:\\Miniconda37-x64"
+#      arch: x64
 
 os: Visual Studio 2017
 
@@ -51,8 +51,8 @@ clone_folder: c:\dev\pyosmium
 
 build_script:
   - cd c:\dev\pyosmium
-  - python setup.py build
-  - python setup.py install --user
+  - C:\\Python27-x64\python setup.py build
+  - C:\\Python27-x64\python setup.py install --user
 
 test_script:
   - set PATH=%BOOST_PREFIX:/=\%\lib;%PATH%
