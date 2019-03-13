@@ -24,23 +24,17 @@ else:
 
 @contextmanager
 def WriteExpect(expected):
-    print("before mktemp", file=sys.stderr)
     fname = tempfile.mktemp(dir=tempfile.gettempdir(), suffix='.opl')
-    print("after mktemp", file=sys.stderr)
     writer = o.SimpleWriter(fname, 1024*1024)
     try:
         yield writer
     finally:
         writer.close()
 
-    print("before reopen", file=sys.stderr)
     with open(fname, 'r') as fd:
         line = fd.readline().strip()
-    print("after reopen", file=sys.stderr)
     assert_equals(line, expected)
-    print("before osremove: %s" % fname, file=sys.stderr)
     os.remove(fname)
-    print("ater osremove", file=sys.stderr)
 
 class O(object):
     def __init__(self, **params):
@@ -128,13 +122,13 @@ class TestWriteNode(unittest.TestCase):
 
 class TestWriteWay(unittest.TestCase):
 
-    def test_node_list(self):
-        with WriteExpect('w0 v0 dV c0 t i0 u T Nn1,n2,n3,n-4') as w:
-            w.add_way(O(nodes=(1, 2, 3, -4)))
-
     def test_node_list_none(self):
         with WriteExpect('w0 v0 dV c0 t i0 u T N') as w:
             w.add_way(O(nodes=None))
+
+    def test_node_list(self):
+        with WriteExpect('w0 v0 dV c0 t i0 u T Nn1,n2,n3,n-4') as w:
+            w.add_way(O(nodes=(1, 2, 3, -4)))
 
 class TestWriteRelation(unittest.TestCase):
 
