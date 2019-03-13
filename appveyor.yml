@@ -51,13 +51,13 @@ clone_folder: c:\dev\pyosmium
 
 build_script:
   - cd c:\dev\pyosmium
-  - C:\\Python27-x64\python setup.py build
-  - C:\\Python27-x64\python setup.py install --user
+  - python setup.py build
+  - python setup.py install --user
 
 test_script:
   - set PATH=%BOOST_PREFIX:/=\%\lib;%PATH%
   - cd test
-  - python run_tests.py -v --nocapture
+  - C:\\Python27-x64\python run_tests.py -v --nocapture
 
 after_test:
   - cd c:\dev\pyosmium
