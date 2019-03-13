@@ -1,3 +1,4 @@
+from __future__ import print_function
 from nose.tools import *
 import unittest
 import tempfile
@@ -23,21 +24,23 @@ else:
 
 @contextmanager
 def WriteExpect(expected):
+    print("before mktemp", file=sys.stderr)
     fname = tempfile.mktemp(dir=tempfile.gettempdir(), suffix='.opl')
+    print("after mktemp", file=sys.stderr)
     writer = o.SimpleWriter(fname, 1024*1024)
     try:
         yield writer
     finally:
         writer.close()
 
-    print("before reopen")
+    print("before reopen", file=sys.stderr)
     with open(fname, 'r') as fd:
         line = fd.readline().strip()
-    print("after reopen")
+    print("after reopen", file=sys.stderr)
     assert_equals(line, expected)
-    print("before osremove: %s" % fname)
+    print("before osremove: %s" % fname, file=sys.stderr)
     os.remove(fname)
-    print("ater osremove")
+    print("ater osremove", file=sys.stderr)
 
 class O(object):
     def __init__(self, **params):
