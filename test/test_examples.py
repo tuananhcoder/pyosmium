@@ -57,22 +57,6 @@ def test_pub_names():
     eq_(output, ['Kyu', 'Havana Club', "Mulligan's", 'Bar Broques',
                  'The Camden - English Pub', 'Aspen', 'el Raval'])
 
-def no_test_osm_diff_stats():
-    script = load_example("osm_diff_stats")
-
-    with Capturing() as output:
-        eq_(0, script['main'](TEST_DIFF))
-
-    eq_(9, len(output))
-    eq_('Nodes added: 305', output[0])
-    eq_('Nodes modified: 192', output[1])
-    eq_('Nodes deleted: 20', output[2])
-    eq_('Ways added: 31', output[3])
-    eq_('Ways modified: 93', output[4])
-    eq_('Ways deleted: 0', output[5])
-    eq_('Relations added: 0', output[6])
-    eq_('Relations modified: 0', output[7])
-    eq_('Relations deleted: 0', output[8])
 
 def test_osm_file_stats():
     script = load_example("osm_file_stats")
