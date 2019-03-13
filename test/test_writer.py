@@ -122,10 +122,6 @@ class TestWriteNode(unittest.TestCase):
 
 class TestWriteWay(unittest.TestCase):
 
-    def test_node_list_none(self):
-        with WriteExpect('w0 v0 dV c0 t i0 u T N') as w:
-            w.add_way(O(nodes=None))
-
     def test_node_list_xxx(self):
         with WriteExpect('w0 v0 dV c0 t i0 u T Nn1,n2,n3,n-4') as w:
             w.add_way(O(nodes=(1, 2, 3, -4)))

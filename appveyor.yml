@@ -57,7 +57,7 @@ build_script:
 test_script:
   - set PATH=%BOOST_PREFIX:/=\%\lib;%PATH%
   - cd test
-  - C:\\Python27-x64\python run_tests.py -v --nocapture
+  - python run_tests.py -v --nocapture
 
 after_test:
   - cd c:\dev\pyosmium
