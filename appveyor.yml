@@ -25,13 +25,8 @@ clone_depth: 1
 
 init:
   - git config --global core.autocrlf input
-  - if "%arch%"=="x86" (
-      set vcvarsall_arg=x86&&
-      set build_type=Release)
-  - if "%arch%"=="x64" (
-      set vcvarsall_arg=amd64&&
-      set build_type=Release)
-  - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall" %vcvarsall_arg%'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall" amd64'
+  - dir "C:\Program Files (x86)"
   - set conda_path=%MINICONDA%\Scripts
   - set conda_library_path=%MINICONDA%\envs\pyosmium\Library
 
