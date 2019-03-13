@@ -57,7 +57,7 @@ def test_pub_names():
     eq_(output, ['Kyu', 'Havana Club', "Mulligan's", 'Bar Broques',
                  'The Camden - English Pub', 'Aspen', 'el Raval'])
 
-def test_osm_diff_stats():
+def no_test_osm_diff_stats():
     script = load_example("osm_diff_stats")
 
     with Capturing() as output:
