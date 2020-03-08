@@ -4,36 +4,46 @@
 #
 #-----------------------------------------------------------------------------
 
-language: python
-
-dist: bionic
 
 matrix:
     include:
         - os: linux
           compiler: clang
-          python: 3.7
+          dist: bionic
+          language: cpp
         - os: linux
           compiler: gcc
           python: 3.4
+          dist: xenial
+          language: python
         - os: linux
           compiler: gcc
           python: 3.5
+          dist: bionic
+          language: python
         - os: linux
           compiler: gcc
           python: 3.6
+          dist: bionic
+          language: python
         - os: linux
           compiler: gcc
           python: 3.7
+          dist: bionic
+          language: python
         - os: linux
           compiler: gcc
           python: 3.8
+          dist: bionic
+          language: python
         - os: osx
           osx_image: xcode7
           compiler: clang
+          language: cpp
         - os: osx
           osx_image: xcode10.1
           compiler: clang
+          language: cpp
 
 # http://docs.travis-ci.com/user/apt/
 addons:
