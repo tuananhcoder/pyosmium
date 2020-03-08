@@ -60,7 +60,11 @@ install:
     - git clone --quiet --depth 1 https://github.com/osmcode/libosmium.git contrib/libosmium
     - git clone --quiet --depth 1 https://github.com/mapbox/protozero.git contrib/protozero
     - git clone --quiet --depth 1 https://github.com/pybind/pybind11.git contrib/pybind11
-    - pip3 install --user -q nose mock shapely setuptools
+    - if [ "$TRAVIS_OS_NAME" = 'osx' ]; then
+        pip3 install --user -q nose mock shapely setuptools;
+      else
+        pip3 install -q nose mock shapely setuptools;
+      fi
 
 script:
     - python3 --version
