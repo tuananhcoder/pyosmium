@@ -6,9 +6,13 @@ environment:
     SHAPELY_VER: 1.6.4
     BOOST_PREFIX: C:\Libraries\boost_1_67_0
   matrix:
-    - PYTHON_VER: 2.7
-      PIPINSTALLS: nose wheel mock
-      MINICONDA: "C:\\Miniconda-x64"
+    - PYTHON_VER: 3.4
+      PIPINSTALLS: nose wheel
+      MINICONDA: "C:\\Miniconda34-x64"
+      arch: x64
+    - PYTHON_VER: 3.5
+      PIPINSTALLS: nose wheel
+      MINICONDA: "C:\\Miniconda35-x64"
       arch: x64
     - PYTHON_VER: 3.6
       PIPINSTALLS: nose wheel
